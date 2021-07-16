@@ -43,7 +43,7 @@ class CategoryItem extends StatelessWidget {
               color,
             ],
             begin: Alignment.topLeft,
-            end: Alignment.bottomLeft,
+            end: Alignment.bottomRight,
           ),
           borderRadius: BorderRadius.circular(15),
         ),

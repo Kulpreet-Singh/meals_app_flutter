@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class FavouritesScreen extends StatelessWidget {
+class FavoritesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(

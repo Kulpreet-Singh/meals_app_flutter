@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../models/meal.dart';
+
 import '../screens/meal_detail_screen.dart';
+import '../models/meal.dart';
 
 class MealItem extends StatelessWidget {
   final String id;
@@ -9,27 +10,26 @@ class MealItem extends StatelessWidget {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
-  final Function removeItem;
 
-  MealItem({
-    @required this.id,
-    @required this.title,
-    @required this.imageUrl,
-    @required this.duration,
-    @required this.complexity,
-    @required this.affordability,
-    @required this.removeItem,
-  });
+  MealItem(
+      {@required this.id,
+      @required this.title,
+      @required this.imageUrl,
+      @required this.affordability,
+      @required this.complexity,
+      @required this.duration,});
 
   String get complexityText {
     switch (complexity) {
       case Complexity.Simple:
         return 'Simple';
         break;
-      case Complexity.Hard:
-        return 'Hard';
       case Complexity.Challenging:
         return 'Challenging';
+        break;
+      case Complexity.Hard:
+        return 'Hard';
+        break;
       default:
         return 'Unknown';
     }
@@ -42,8 +42,10 @@ class MealItem extends StatelessWidget {
         break;
       case Affordability.Pricey:
         return 'Pricey';
+        break;
       case Affordability.Luxurious:
         return 'Expensive';
+        break;
       default:
         return 'Unknown';
     }
@@ -57,7 +59,7 @@ class MealItem extends StatelessWidget {
     )
         .then((result) {
       if (result != null) {
-        removeItem(result);
+        // removeItem(result);
       }
     });
   }
@@ -73,9 +75,9 @@ class MealItem extends StatelessWidget {
         elevation: 4,
         margin: EdgeInsets.all(10),
         child: Column(
-          children: [
+          children: <Widget>[
             Stack(
-              children: [
+              children: <Widget>[
                 ClipRRect(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(15),
@@ -95,8 +97,8 @@ class MealItem extends StatelessWidget {
                     width: 300,
                     color: Colors.black54,
                     padding: EdgeInsets.symmetric(
-                      horizontal: 20,
                       vertical: 5,
+                      horizontal: 20,
                     ),
                     child: Text(
                       title,
@@ -115,10 +117,12 @@ class MealItem extends StatelessWidget {
               padding: EdgeInsets.all(20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
+                children: <Widget>[
                   Row(
-                    children: [
-                      Icon(Icons.schedule),
+                    children: <Widget>[
+                      Icon(
+                        Icons.schedule,
+                      ),
                       SizedBox(
                         width: 6,
                       ),
@@ -126,8 +130,10 @@ class MealItem extends StatelessWidget {
                     ],
                   ),
                   Row(
-                    children: [
-                      Icon(Icons.work),
+                    children: <Widget>[
+                      Icon(
+                        Icons.work,
+                      ),
                       SizedBox(
                         width: 6,
                       ),
@@ -135,8 +141,10 @@ class MealItem extends StatelessWidget {
                     ],
                   ),
                   Row(
-                    children: [
-                      Icon(Icons.attach_money),
+                    children: <Widget>[
+                      Icon(
+                        Icons.attach_money,
+                      ),
                       SizedBox(
                         width: 6,
                       ),
@@ -145,7 +153,7 @@ class MealItem extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
